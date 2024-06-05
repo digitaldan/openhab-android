@@ -214,6 +214,7 @@ abstract class AbstractWebViewFragment : Fragment(), ConnectionFactory.UpdateLis
                 loadWebsite()
             }
         }
+        webView?.getSettings()?.mediaPlaybackRequiresUserGesture = false;
     }
 
     override fun onDestroyView() {
@@ -395,8 +396,8 @@ abstract class AbstractWebViewFragment : Fragment(), ConnectionFactory.UpdateLis
         callback?.updateActionBarState()
     }
 
-    private fun closeFragment() {
-        callback?.closeFragment()
+    private fun toggleDrawer() {
+        mainActivity?.toggleDrawer();
     }
 
     open class OHAppInterface(private val context: Context, private val fragment: AbstractWebViewFragment) {
@@ -416,7 +417,7 @@ abstract class AbstractWebViewFragment : Fragment(), ConnectionFactory.UpdateLis
         fun exitToApp() {
             Log.d(TAG, "exitToApp()")
             fragment.launch {
-                fragment.closeFragment()
+                fragment.toggleDrawer()
             }
         }
 

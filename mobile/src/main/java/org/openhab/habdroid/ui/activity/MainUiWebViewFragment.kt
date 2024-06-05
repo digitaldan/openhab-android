@@ -22,7 +22,7 @@ class MainUiWebViewFragment : AbstractWebViewFragment() {
     override val errorMessageRes = R.string.main_ui_error
     override val urlToLoad = "/"
     override val pathForError = "/"
-    override val lockDrawer = true
+    override val lockDrawer = false
     override val shortcutIcon = R.mipmap.ic_shortcut_main_ui
     override val shortcutAction = MainActivity.ACTION_MAIN_UI_SELECTED
 
